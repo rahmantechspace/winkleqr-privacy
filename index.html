@@ -3,13 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Winkle QR — the QR scanner that can't spy on you</title>
-<meta name="description" content="Free, offline QR and barcode scanner and maker for Android. No internet permission at all. Styled codes, printable posters, and layouts built for Fold, Flip and tablets.">
+<title>Winkle QR: the QR scanner that can't spy on you</title>
+<meta name="description" content="Free, offline QR and barcode scanner and maker for Android. No internet permission at all. Styled codes, printable posters, and real layouts for Fold, Flip and tablets.">
 <link rel="icon" href="img/icon.png">
 <link rel="stylesheet" href="style.css">
-<meta property="og:title" content="Winkle QR — the QR scanner that can't spy on you">
+<meta property="og:title" content="Winkle QR: the QR scanner that can't spy on you">
 <meta property="og:description" content="No internet permission. No ads. No account. Styled QR codes, printable posters, and real foldable layouts.">
 <meta property="og:image" content="img/icon.png">
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('winkle-theme'); } catch (e) {}
+    var system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', saved || system);
+  })();
+</script>
 </head>
 <body>
 
@@ -21,43 +29,49 @@
       <a href="#features">Features</a>
       <a href="#devices">Foldables</a>
       <a href="#posters">Posters</a>
-      <a href="privacy/">Privacy</a>
+      <a class="keep" href="privacy/">Privacy</a>
+      <button id="theme" type="button" aria-label="Switch between light and dark">🌙</button>
     </nav>
   </div>
 </div>
 
 <header class="hero">
   <div class="wrap">
-    <img class="icon" src="img/icon.png" alt="Winkle QR app icon: a QR mark with one closed, winking eye">
-    <h1>The QR scanner<br>that <span class="grad">can't</span> spy on you</h1>
-    <p class="lede">
-      Not "we promise not to track you". Winkle QR has <b>no internet permission at all</b>,
-      so Android itself refuses to let it phone home. Scan, create, print. Nothing leaves your phone.
-    </p>
-    <div class="pills">
-      <span class="pill hot">⚡ Camera is the only permission</span>
-      <span class="pill">No ads</span>
-      <span class="pill">No account</span>
-      <span class="pill">No trackers</span>
-      <span class="pill">No watermark</span>
-      <span class="pill">Android 7 → 17</span>
+    <div>
+      <span class="badge"><i>Android</i> free, offline, no ads</span>
+      <h1>The QR scanner that <span class="grad">can't</span> spy on you.</h1>
+      <p class="lede">
+        Not "we promise not to track you". Winkle QR holds <b>no internet permission at all</b>, so Android itself
+        refuses to let it phone home. Scan codes, design your own, print posters. Everything stays on your phone.
+      </p>
+      <div class="pills">
+        <span class="pill hot">Camera is the only permission</span>
+        <span class="pill">No ads</span>
+        <span class="pill">No account</span>
+        <span class="pill">No watermark</span>
+      </div>
+      <div class="actions">
+        <a class="btn" href="#posters">See what it makes</a>
+        <a class="btn ghost" href="#devices">Built for foldables</a>
+      </div>
     </div>
-    <div class="cluster">
-      <img class="phone side" src="img/shots/result-wifi.png" alt="Result screen showing a Wi-Fi network with a Connect button">
-      <img class="phone" src="img/shots/create-style-studio.png" alt="Create screen with a teal and amber QR code and a Scans perfectly badge">
-      <img class="phone side" src="img/shots/history-dark.png" alt="History screen in dark mode grouped by day">
+    <div class="art">
+      <img class="p1" src="img/posters/WIFI_GUEST_MINT.png" alt="Guest Wi-Fi poster">
+      <img class="p2" src="img/posters/FUN_SCAN_HERE_CITRUS.png" alt="Scan here poster">
+      <img class="phone" src="img/shots/hero-phone.png" alt="Winkle QR creating a styled QR code with a Scans perfectly badge">
+      <img class="p4" src="img/posters/EVENT_WEDDING_BLUSH.png" alt="Wedding poster">
+      <img class="p3" src="img/posters/SOCIAL_FOLLOW_SUNSET.png" alt="Follow us poster">
     </div>
   </div>
 </header>
 
-<div class="wrap">
-  <div class="band">
-    <h2>Most apps ask for trust.<br>This one removed the option.</h2>
-    <p>
-      A QR code can hold your Wi-Fi password, your contact card, a payment link. Winkle QR doesn't hold the
-      <code>INTERNET</code> permission, so the operating system blocks it from opening any connection — and the build
-      itself fails if that ever changes. Check it yourself: Settings → Apps → Winkle QR → Permissions.
-    </p>
+<section class="strip ink">
+  <div class="wrap">
+    <p class="eyebrow">Why it's different</p>
+    <h2 class="section">Most apps ask for trust.<br>This one removed the option.</h2>
+    <p class="sub">A QR code can hold your Wi-Fi password, your contact card, a payment link. Winkle QR cannot send any
+      of it anywhere, because the permission that would allow it was never requested. The build even fails if that
+      ever changes.</p>
     <div class="stats">
       <div class="stat"><b>1</b><span>permission, camera only</span></div>
       <div class="stat"><b>0</b><span>trackers, ads, accounts</span></div>
@@ -65,127 +79,14 @@
       <div class="stat"><b>601</b><span>automated tests</span></div>
     </div>
   </div>
-</div>
-
-<section id="features">
-  <div class="wrap">
-    <p class="eyebrow">What it does</p>
-    <h2 class="section">Everything clever happens<br>on your phone.</h2>
-    <p class="sub">The barcode model ships inside the app, so nothing is uploaded for recognition — not even once.</p>
-    <div class="bento">
-      <div class="card wide">
-        <span class="em">📷</span>
-        <h3>Scan anything, fast</h3>
-        <p>QR codes and the everyday barcodes — EAN, UPC, Code 128, Code 39 — with flashlight, pinch zoom, tap to
-          focus and a highlight on the code it locked onto. Got a code in a screenshot instead? Pick the photo and it
-          reads that too, even if you've refused camera access.</p>
-      </div>
-      <div class="card">
-        <span class="em">🔗</span>
-        <h3>It knows what it found</h3>
-        <p>Links, Wi-Fi, contacts, phone numbers, SMS, email, products — each gets the right action. Links show the
-          real domain, so a lookalike stands out before you tap.</p>
-      </div>
-      <div class="card">
-        <span class="em">🎨</span>
-        <h3>Design the code</h3>
-        <p>Colours and gradients, dot and eye shapes, a logo in the middle, frames — and any colour you like, not just
-          presets.</p>
-      </div>
-      <div class="card">
-        <span class="em">✅</span>
-        <h3>It scans itself</h3>
-        <p>Before you save, the app reads its own design back. If a colour choice would break it, you're told straight
-          away instead of finding out on a printed sign.</p>
-      </div>
-      <div class="card">
-        <span class="em">🖨️</span>
-        <h3>Print-ready posters</h3>
-        <p>13 original designs, exported as an image or a sharp vector PDF in A4, Letter or A5.</p>
-      </div>
-      <div class="card">
-        <span class="em">🕓</span>
-        <h3>History that stays home</h3>
-        <p>Saved on the phone only, and left out of cloud backups and device transfers. Delete one, or clear the lot.</p>
-      </div>
-      <div class="card">
-        <span class="em">💧</span>
-        <h3>No watermark. Ever.</h3>
-        <p>Your codes and posters come out clean. No logo of ours, no "upgrade to remove", no subscription.</p>
-      </div>
-    </div>
-  </div>
 </section>
 
-<section id="devices">
-  <div class="wrap">
-    <p class="eyebrow">Built for the screens you paid for</p>
-    <h2 class="section">Folds. Flips. Tablets.<br>Not a stretched phone app.</h2>
-    <p class="sub">
-      Most scanners just blow up the phone layout on a foldable. Winkle QR is laid out for each posture — and it never
-      puts anything across the crease.
-    </p>
-    <div class="devices">
-      <div class="device tall">
-        <div class="shot"><img src="img/devices/fold-open.png" alt="Unfolded Fold showing the form and preview on the left and Style Studio on the right"></div>
-        <div class="label">
-          <span class="tag">Fold, opened</span>
-          <h3>Two real panes</h3>
-          <p>Your form and live code on one side, the whole studio on the other, with a navigation rail instead of a
-            bottom bar. History works the same way: list on the left, the code you tapped on the right.</p>
-        </div>
-      </div>
-      <div class="device">
-        <div class="shot"><img src="img/devices/fold-book.png" alt="Half-open Fold with the layout split exactly at the hinge"></div>
-        <div class="label">
-          <span class="tag violet">Fold, half-open</span>
-          <h3>Split at the hinge</h3>
-          <p>The panes meet exactly on the fold, so no button or text ever sits on the crease.</p>
-        </div>
-      </div>
-      <div class="device">
-        <div class="shot"><img src="img/devices/flip-tabletop.png" alt="Half-folded Flip with the code above the fold and controls below"></div>
-        <div class="label">
-          <span class="tag amber">Flip, tabletop</span>
-          <h3>Stand it on a table</h3>
-          <p>Camera or code above the fold, controls below — so a half-folded Flip becomes a little scanning stand.</p>
-        </div>
-      </div>
-      <div class="device">
-        <div class="shot"><img src="img/devices/flip-cover.png" alt="Flip cover screen showing a compact layout with icon-only navigation"></div>
-        <div class="label">
-          <span class="tag amber">Flip, cover screen</span>
-          <h3>Works closed</h3>
-          <p>On the little outer screen the navigation drops to icons and the studio collapses, so nothing is cut off.</p>
-        </div>
-      </div>
-      <div class="device">
-        <div class="shot"><img src="img/devices/tablet-studio.png" alt="Tablet showing Create with two panes and a wide Style Studio"></div>
-        <div class="label">
-          <span class="tag">Tablet</span>
-          <h3>Room to design</h3>
-          <p>Wide layouts with a rail, a roomy studio, and reading width capped so text never stretches across 12 inches.</p>
-        </div>
-      </div>
-      <div class="device">
-        <div class="shot"><img src="img/devices/fold-scan.png" alt="Half-folded device scanning, with the camera above the fold and controls below"></div>
-        <div class="label">
-          <span class="tag violet">Any posture</span>
-          <h3>Fold mid-scan, keep scanning</h3>
-          <p>Open, close or rotate while the camera is live: the preview keeps running and your typing, style and
-            place in the list all survive.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="posters">
+<section class="strip" id="posters">
   <div class="wrap">
     <p class="eyebrow">Posters</p>
     <h2 class="section">Print-shop looks,<br>made on your phone.</h2>
-    <p class="sub">Menus, payments, guest Wi-Fi, weddings, events, socials, shops. Edit the words, pick a colour theme,
-      export a PDF — no account, no watermark, no subscription.</p>
+    <p class="sub">Menus, payments, guest Wi-Fi, weddings, events, socials, shops. Edit the words, pick a colour
+      theme, export a sharp PDF in A4, Letter or A5. No account, no watermark, no subscription.</p>
   </div>
   <div class="marquee">
     <div class="track">
@@ -205,15 +106,128 @@
   </div>
 </section>
 
-<section>
+<section class="strip tint" id="features">
+  <div class="wrap">
+    <p class="eyebrow">What it does</p>
+    <h2 class="section">Everything clever happens on your phone.</h2>
+    <p class="sub">The barcode model ships inside the app, so nothing is uploaded to be recognised. Not once.</p>
+    <div class="bento">
+      <div class="card wide">
+        <span class="em">📷</span>
+        <h3>Scan anything, fast</h3>
+        <p>QR codes and everyday barcodes (EAN, UPC, Code 128, Code 39) with flashlight, pinch zoom, tap to focus and
+          a highlight on the code it locked onto. Got a code in a screenshot instead? Pick the photo and it reads that
+          too, even if you have refused camera access.</p>
+      </div>
+      <div class="card">
+        <span class="em">🔗</span>
+        <h3>It knows what it found</h3>
+        <p>Links, Wi-Fi, contacts, phone numbers, SMS, email, products. Each gets the right action, and links show the
+          real domain so a lookalike stands out before you tap.</p>
+      </div>
+      <div class="card">
+        <span class="em">🎨</span>
+        <h3>Design the code</h3>
+        <p>Colours and gradients, dot and eye shapes, a logo in the middle, frames, and any colour you like rather
+          than a fixed set of presets.</p>
+      </div>
+      <div class="card">
+        <span class="em">✅</span>
+        <h3>It scans itself</h3>
+        <p>Before you save, the app reads its own design back. If a colour choice would break it you are told straight
+          away, instead of finding out on a printed sign.</p>
+      </div>
+      <div class="card">
+        <span class="em">🖨️</span>
+        <h3>Print ready</h3>
+        <p>Export an image or a vector PDF that stays sharp at any size, in A4, Letter or A5.</p>
+      </div>
+      <div class="card">
+        <span class="em">🕓</span>
+        <h3>History that stays home</h3>
+        <p>Saved on the phone only, and left out of cloud backups and phone transfers. Delete one, or clear the lot.</p>
+      </div>
+      <div class="card">
+        <span class="em">💧</span>
+        <h3>No watermark, ever</h3>
+        <p>Your codes and posters come out clean. No logo of ours, no "upgrade to remove", no subscription.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="strip" id="devices">
+  <div class="wrap">
+    <p class="eyebrow">Built for the screens you paid for</p>
+    <h2 class="section">Folds. Flips. Tablets.<br>Not a stretched phone app.</h2>
+    <p class="sub">Most scanners just blow the phone layout up on a foldable. Winkle QR is laid out for each posture,
+      and it never puts anything across the crease.</p>
+    <div class="devices">
+      <div class="device tall">
+        <div class="shot"><img src="img/devices/fold-open.png" alt="Unfolded Fold showing the form and preview on the left and Style Studio on the right"></div>
+        <div class="label">
+          <span class="tag">Fold, opened</span>
+          <h3>Two real panes</h3>
+          <p>Your form and live code on one side, the whole studio on the other, with a navigation rail instead of a
+            bottom bar. History works the same way: the list on the left, the code you tapped on the right.</p>
+        </div>
+      </div>
+      <div class="device">
+        <div class="shot"><img src="img/devices/fold-book.png" alt="Half-open Fold with the layout split exactly at the hinge"></div>
+        <div class="label">
+          <span class="tag violet">Fold, half open</span>
+          <h3>Split at the hinge</h3>
+          <p>The panes meet exactly on the fold, so no button or line of text ever sits on the crease.</p>
+        </div>
+      </div>
+      <div class="device">
+        <div class="shot"><img src="img/devices/flip-tabletop.png" alt="Half-folded Flip with the code above the fold and controls below"></div>
+        <div class="label">
+          <span class="tag amber">Flip, tabletop</span>
+          <h3>Stand it on a table</h3>
+          <p>Camera or finished code above the fold, controls below, so a half folded Flip becomes a little scanning
+            stand.</p>
+        </div>
+      </div>
+      <div class="device">
+        <div class="shot"><img src="img/devices/flip-cover.png" alt="Flip cover screen with a compact layout and icon-only navigation"></div>
+        <div class="label">
+          <span class="tag amber">Flip, cover screen</span>
+          <h3>Works closed</h3>
+          <p>On the small outer screen the navigation drops to icons and the studio collapses, so nothing is cut off.</p>
+        </div>
+      </div>
+      <div class="device">
+        <div class="shot"><img src="img/devices/tablet-studio.png" alt="Tablet showing Create in two panes with a wide Style Studio"></div>
+        <div class="label">
+          <span class="tag pink">Tablet</span>
+          <h3>Room to design</h3>
+          <p>Wide layouts with a rail, a roomy studio, and reading width capped so text never stretches across twelve
+            inches.</p>
+        </div>
+      </div>
+      <div class="device">
+        <div class="shot"><img src="img/devices/fold-scan.png" alt="Half-folded device scanning with the camera above the fold"></div>
+        <div class="label">
+          <span class="tag violet">Any posture</span>
+          <h3>Fold mid scan, keep scanning</h3>
+          <p>Open, close or rotate while the camera is live. The preview keeps running, and your typing, your style
+            and your place in the list all survive.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="strip tint">
   <div class="wrap">
     <p class="eyebrow">A look inside</p>
-    <h2 class="section">Seven taps you'll actually use.</h2>
+    <h2 class="section">Seven screens you'll actually use.</h2>
   </div>
   <div class="rail">
     <figure><img src="img/shots/poster-picker.png" alt="Poster designs grouped by category, each thumbnail showing your own code"><figcaption>Pick a poster design</figcaption></figure>
     <figure><img src="img/shots/create-style-studio.png" alt="Styled QR code with a Scans perfectly badge"><figcaption>Style it, see it verified</figcaption></figure>
-    <figure><img src="img/shots/create-templates.png" alt="Template row with Classic, Teal and Amber banner"><figcaption>Ready-made templates</figcaption></figure>
+    <figure><img src="img/shots/create-templates.png" alt="Template row with Classic, Teal and Amber banner"><figcaption>Ready made templates</figcaption></figure>
     <figure><img src="img/shots/result-link.png" alt="Result screen for a link with the domain highlighted"><figcaption>See where a link really goes</figcaption></figure>
     <figure><img src="img/shots/result-wifi.png" alt="Result screen for a Wi-Fi code with a Connect button"><figcaption>Join Wi-Fi without typing</figcaption></figure>
     <figure><img src="img/devices/fold-history.png" alt="History list and detail side by side on an unfolded device"><figcaption>History, list and detail</figcaption></figure>
@@ -221,22 +235,22 @@
   </div>
 </section>
 
-<section>
+<section class="strip ink">
   <div class="wrap">
     <p class="eyebrow">Proof, not vibes</p>
     <h2 class="section">How the claim is kept honest.</h2>
-    <p class="sub">Anyone can write "we respect your privacy". Here's what actually stands behind it.</p>
+    <p class="sub">Anyone can write "we respect your privacy". Here is what actually stands behind it.</p>
     <ul class="proof">
       <li><strong>No internet permission</strong>Android grants network access through a permission this app never
-        requests, so it's blocked at the operating-system level — not by our good intentions.</li>
+        requests, so it is blocked by the operating system rather than by our good intentions.</li>
       <li><strong>The build refuses to ship otherwise</strong>Every build inspects the finished app and fails if any
-        permission beyond the camera appears, including ones a third-party library tries to slip in.</li>
+        permission beyond the camera appears, including ones a third party library tries to slip in.</li>
       <li><strong>The scanner lives inside the app</strong>The barcode model is bundled, so nothing is downloaded and
         no image is sent away to be recognised.</li>
-      <li><strong>Your history is excluded from backups</strong>It isn't copied to Google Drive and doesn't follow you
-        to a new phone unless you choose to recreate it.</li>
-      <li><strong>Hand-offs are yours to make</strong>Opening a link, joining Wi-Fi or saving a contact passes details
-        to an app you already trust, only when you tap the button.</li>
+      <li><strong>History is excluded from backups</strong>It is not copied to Google Drive and does not follow you to
+        a new phone.</li>
+      <li><strong>Hand offs are yours to make</strong>Opening a link, joining Wi-Fi or saving a contact passes the
+        details to an app you already trust, only when you tap the button.</li>
       <li><strong>601 automated tests</strong>Run on Android 7 through 17, on phones, foldables and tablets, before
         anything ships.</li>
     </ul>
@@ -246,16 +260,16 @@
 <div class="wrap">
   <div class="cta">
     <h2>Coming soon to Google Play</h2>
-    <p>Free, no ads, no account. If you'd like to know when it lands, the privacy policy below is the whole story —
-      there's nothing else to sign up for.</p>
+    <p>Free, no ads, no account. There is nothing to sign up for, so the privacy policy below really is the whole
+      story.</p>
     <a class="btn" href="privacy/">Read the privacy policy</a>
-    <a class="btn ghost" href="#devices">See the foldable layouts</a>
+    <a class="btn ghost" href="#features">See the features</a>
   </div>
 </div>
 
 <footer>
   <div class="wrap">
-    <span>Winkle QR — free, offline, no ads, no watermark.</span>
+    <span>Winkle QR. Free, offline, no ads, no watermark.</span>
     <nav>
       <a href="privacy/">Privacy policy</a>
       <a href="#features">Features</a>
@@ -263,6 +277,21 @@
     </nav>
   </div>
 </footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('theme');
+    var root = document.documentElement;
+    function paint() { btn.textContent = root.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙'; }
+    paint();
+    btn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('winkle-theme', next); } catch (e) {}
+      paint();
+    });
+  })();
+</script>
 
 </body>
 </html>

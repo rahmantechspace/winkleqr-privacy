@@ -3,10 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy policy — Winkle QR</title>
+<title>Privacy policy | Winkle QR</title>
 <meta name="description" content="Winkle QR collects nothing: no internet permission, no analytics, no account. Everything stays on your device.">
 <link rel="icon" href="../img/icon.png">
 <link rel="stylesheet" href="../style.css">
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('winkle-theme'); } catch (e) {}
+    var system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', saved || system);
+  })();
+</script>
 </head>
 <body>
 
@@ -15,16 +23,18 @@
     <img src="../img/icon.png" alt="">
     <b>Winkle QR</b>
     <nav>
-      <a href="../">Home</a>
-      <a href="../#privacy">Privacy</a>
+      <a class="keep" href="../">Home</a>
+      <a href="../#features">Features</a>
+      <a href="../#devices">Foldables</a>
+      <button id="theme" type="button" aria-label="Switch between light and dark">🌙</button>
     </nav>
   </div>
 </div>
 
-<main class="wrap narrow policy" style="padding-top:36px;padding-bottom:20px">
-  <h1 style="font-size:clamp(1.8rem,5vw,2.4rem);letter-spacing:-.02em;margin:0 0 10px">Privacy policy</h1>
-  <p style="color:var(--muted);margin:0 0 22px">The short answer: nothing about you leaves your phone, because the app
-     has no way to send it.</p>
+<main class="wrap narrow policy" style="padding-top:40px">
+  <h1 style="font-size:clamp(1.9rem,5vw,2.6rem);letter-spacing:-.035em;margin:0 0 10px;font-weight:800">Privacy policy</h1>
+  <p style="color:var(--muted);margin:0 0 24px;font-size:1.05rem">The short answer: nothing about you leaves your
+     phone, because the app has no way to send it.</p>
   <div class="meta">
     <strong>Effective date:</strong> 20 September 2026<br>
     <strong>App:</strong> Winkle QR (Android, <code>com.winkleqr.app</code>)<br>
@@ -55,10 +65,24 @@
 
 <footer>
   <div class="wrap">
-    <span>Winkle QR — free, offline, no ads.</span>
+    <span>Winkle QR. Free, offline, no ads, no watermark.</span>
     <nav><a href="../">Home</a></nav>
   </div>
 </footer>
 
+<script>
+  (function () {
+    var btn = document.getElementById('theme');
+    var root = document.documentElement;
+    function paint() { btn.textContent = root.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙'; }
+    paint();
+    btn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('winkle-theme', next); } catch (e) {}
+      paint();
+    });
+  })();
+</script>
 </body>
 </html>
