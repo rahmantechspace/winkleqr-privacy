@@ -7,13 +7,13 @@
   --violet: #6d5bd0;
   --pink: #e05a4a;
 
-  --ink: #10201e;
-  --muted: #4a605c;
-  --faint: #7b908c;
-  --bg: #fbf8f3;
-  --bg-tint: #f0f7f4;
+  --ink: #16181c;
+  --muted: #545a63;
+  --faint: #828993;
+  --bg: #fcfbf9;
+  --bg-tint: #f3f2ef;
   --card: #ffffff;
-  --line: #e2e8e4;
+  --line: #e6e5e1;
   --shadow-sm: 0 1px 2px rgba(16, 32, 30, .05), 0 8px 24px -14px rgba(16, 32, 30, .25);
   --shadow-lg: 0 30px 60px -28px rgba(16, 32, 30, .42);
   --radius: 22px;
@@ -27,13 +27,13 @@
   --violet: #a996ff;
   --pink: #ff8a7a;
 
-  --ink: #f2f6f5;
-  --muted: #a9bab6;
-  --faint: #7d918d;
-  --bg: #080d0d;
-  --bg-tint: #0d1616;
-  --card: #121c1b;
-  --line: #1f2d2b;
+  --ink: #f4f4f3;
+  --muted: #adb3ba;
+  --faint: #838a93;
+  --bg: #0a0b0d;
+  --bg-tint: #101216;
+  --card: #15181d;
+  --line: #24272e;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, .5), 0 10px 26px -16px rgba(0, 0, 0, .8);
   --shadow-lg: 0 34px 70px -30px rgba(0, 0, 0, .95);
 }
@@ -75,8 +75,9 @@ a { color: var(--teal); }
 .hero {
   position: relative; overflow: hidden; padding: 54px 0 0;
   background:
-    radial-gradient(90% 120% at 12% 0%, color-mix(in srgb, var(--teal) 22%, transparent), transparent 62%),
-    radial-gradient(80% 110% at 92% 18%, color-mix(in srgb, var(--amber) 20%, transparent), transparent 60%),
+    radial-gradient(70% 100% at 8% 0%, color-mix(in srgb, var(--teal) 12%, transparent), transparent 58%),
+    radial-gradient(85% 120% at 95% 12%, color-mix(in srgb, var(--amber) 22%, transparent), transparent 62%),
+    radial-gradient(60% 90% at 60% 100%, color-mix(in srgb, var(--violet) 10%, transparent), transparent 60%),
     var(--bg-tint);
   border-bottom: 1px solid var(--line);
 }
@@ -124,15 +125,15 @@ h1 .grad { background: linear-gradient(100deg, var(--teal-bright), var(--amber))
 .strip { padding: 64px 0; }
 .strip.tint { background: var(--bg-tint); border-block: 1px solid var(--line); }
 .strip.ink {
-  background: linear-gradient(160deg, #06201d, #0b2b26 45%, #1d1405);
-  color: #f2f6f5; border-block: 1px solid transparent;
+  background: linear-gradient(165deg, #14171c, #191b20 55%, #221a12);
+  color: #f4f4f3; border-block: 1px solid transparent;
 }
-.strip.ink .sub, .strip.ink .card p, .strip.ink .device p { color: #a9bab6; }
+.strip.ink .sub, .strip.ink .card p, .strip.ink .device p { color: #b3b8bf; }
 .strip.ink .card, .strip.ink .device { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.09); }
 .strip.ink h2.section, .strip.ink .card h3, .strip.ink .device h3 { color: #fff; }
-.strip.ink .eyebrow { color: #6ef0dc; }
+.strip.ink .eyebrow { color: var(--amber); }
 
-.eyebrow { color: var(--teal); font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; margin: 0 0 10px; }
+.eyebrow { color: var(--muted); font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; margin: 0 0 10px; }
 h2.section { font-size: clamp(1.75rem, 4.2vw, 2.7rem); letter-spacing: -.035em; margin: 0 0 12px; font-weight: 800; line-height: 1.06; }
 p.sub { color: var(--muted); margin: 0 0 30px; max-width: 660px; font-size: 1.03rem; }
 
@@ -140,10 +141,14 @@ p.sub { color: var(--muted); margin: 0 0 30px; max-width: 660px; font-size: 1.03
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; }
 .stat { text-align: center; padding: 24px 14px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
 .strip.ink .stat { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.1); }
-.stat b { display: block; font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1; letter-spacing: -.04em; margin-bottom: 8px;
-  background: linear-gradient(120deg, var(--teal-bright), var(--amber)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stat b { display: block; font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1; letter-spacing: -.04em; margin-bottom: 8px; color: var(--ink); }
+.strip.ink .stat b { color: #fff; }
+.stat:nth-child(1) b { color: var(--teal); }
+.stat:nth-child(2) b { color: var(--pink); }
+.stat:nth-child(3) b { color: var(--amber); }
+.stat:nth-child(4) b { color: var(--violet); }
 .stat span { color: var(--faint); font-size: .85rem; }
-.strip.ink .stat span { color: #8ea6a1; }
+.strip.ink .stat span { color: #959ba3; }
 
 /* features */
 .bento { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(258px, 1fr)); }
@@ -190,7 +195,7 @@ p.sub { color: var(--muted); margin: 0 0 30px; max-width: 660px; font-size: 1.03
 /* proof */
 .proof { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
 .proof li { border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px; color: var(--muted); background: var(--card); box-shadow: var(--shadow-sm); font-size: .96rem; }
-.strip.ink .proof li { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.09); color: #a9bab6; }
+.strip.ink .proof li { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.09); color: #b3b8bf; }
 .proof li strong { display: block; color: var(--ink); margin-bottom: 6px; font-size: 1rem; }
 .strip.ink .proof li strong { color: #fff; }
 
@@ -217,3 +222,18 @@ footer a { color: var(--muted); text-decoration: none; }
 footer a:hover { color: var(--teal); }
 
 @media (max-width: 560px) { .strip { padding: 46px 0 } .hero { padding-top: 34px } }
+
+/* Section accents: keep teal as the brand note, not the whole palette. */
+#posters .eyebrow { color: var(--amber); }
+#features .eyebrow { color: var(--violet); }
+#devices .eyebrow { color: var(--pink); }
+
+/* Primary button: one confident colour rather than a green wash everywhere. */
+.btn { background: var(--ink); color: var(--bg); box-shadow: var(--shadow-lg); }
+:root[data-theme="dark"] .btn { background: var(--ink); color: #14171c; }
+.pill.hot { background: color-mix(in srgb, var(--teal) 14%, var(--card)); color: var(--teal); border-color: color-mix(in srgb, var(--teal) 30%, transparent); }
+.badge i { background: var(--ink); color: var(--bg); }
+
+/* Keep the highlighted pill readable in both themes. */
+.pill.hot { color: var(--ink); font-weight: 600; border-color: color-mix(in srgb, var(--teal) 45%, transparent); background: color-mix(in srgb, var(--teal) 12%, var(--card)); }
+.pill.hot::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--teal); margin-right: 8px; vertical-align: 1px; }
